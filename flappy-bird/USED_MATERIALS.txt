@@ -1,0 +1,2 @@
+flappy bird & pipe: https://github.com/shivmsit/FlappyBird
+parallax background: https://free-game-assets.itch.io/nature-landscapes-free-pixel-art
