@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cg4l4pv7hvsr2"]
+
+[ext_resource type="Script" uid="uid://bo4iyoa0ibh3a" path="res://obstacle_conveyor.gd" id="1_v8rtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enu52"]
+size = Vector2(560, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cjtp"]
+size = Vector2(40, 720)
+
+[node name="ObstacleConveyor" type="Area2D" unique_id=607725007]
+collision_mask = 5
+script = ExtResource("1_v8rtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=814675177]
+position = Vector2(240, 360)
+shape = SubResource("RectangleShape2D_enu52")
+
+[node name="Timer" type="Timer" parent="." unique_id=1595809346]
+wait_time = 2.0
+
+[node name="WinArea" type="Area2D" parent="." unique_id=113834721]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea" unique_id=1599704659]
+position = Vector2(100, 360)
+shape = SubResource("RectangleShape2D_2cjtp")
+
+[connection signal="body_exited" from="." to="." method="on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="on_timer_timeout"]
+[connection signal="area_entered" from="WinArea" to="." method="on_win_area_area_entered"]
+[connection signal="body_entered" from="WinArea" to="." method="on_win_area_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dprp62bfdcfkc"]
+
+[ext_resource type="Script" uid="uid://bontroq71f4as" path="res://real_player.gd" id="1_873uc"]
+[ext_resource type="SpriteFrames" uid="uid://dbrqawtj6sbrb" path="res://sriteframes/flying.tres" id="2_6ktux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22ee0"]
+size = Vector2(50, 50)
+
+[node name="RealPlayer" type="CharacterBody2D" unique_id=1995922493]
+collision_mask = 7
+script = ExtResource("1_873uc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=317734215]
+shape = SubResource("RectangleShape2D_22ee0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1424073498]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_6ktux")
+animation = &"flying"

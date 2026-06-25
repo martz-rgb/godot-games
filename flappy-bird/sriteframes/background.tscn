@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bifut5lnv7rwn"]
+
+[ext_resource type="Texture2D" uid="uid://fnoy6cmm5rsi" path="res://sprites/background/1.png" id="1_5cgu1"]
+[ext_resource type="Script" uid="uid://bb2ujtuuon3fp" path="res://sriteframes/background.gd" id="1_uf6rl"]
+[ext_resource type="Texture2D" uid="uid://ucd7mb2bbqa3" path="res://sprites/background/2.png" id="2_uf6rl"]
+[ext_resource type="Texture2D" uid="uid://b2xw6a2ag552b" path="res://sprites/background/3.png" id="4_ncfwl"]
+[ext_resource type="Texture2D" uid="uid://bg21eoplipdse" path="res://sprites/background/4.png" id="5_e1evw"]
+
+[node name="Background" type="Node2D" unique_id=1194118788]
+script = ExtResource("1_uf6rl")
+
+[node name="sky" type="Parallax2D" parent="." unique_id=1537321506]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(1267, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="sky" unique_id=195930302]
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("1_5cgu1")
+centered = false
+
+[node name="clouds" type="Parallax2D" parent="." unique_id=1491288724]
+repeat_size = Vector2(1267, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="clouds" unique_id=542950506]
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_uf6rl")
+centered = false
+
+[node name="grass" type="Parallax2D" parent="." unique_id=175562731]
+repeat_size = Vector2(1267, 0)
+autoscroll = Vector2(-20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="grass" unique_id=283132260]
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("4_ncfwl")
+centered = false
+
+[node name="front" type="Parallax2D" parent="." unique_id=151611484]
+repeat_size = Vector2(1267, 0)
+autoscroll = Vector2(-40, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="front" unique_id=1700023352]
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("5_e1evw")
+centered = false

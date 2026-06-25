@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c6jsn6xomhrtm"]
+
+[ext_resource type="Script" uid="uid://bwk3yhxd42cdj" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cg4l4pv7hvsr2" path="res://obstacle_conveyor.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dyxssh63w7kky" path="res://score_board.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bifut5lnv7rwn" path="res://sriteframes/background.tscn" id="4_1bvp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enu52"]
+size = Vector2(480, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cjtp"]
+size = Vector2(480, 20)
+
+[node name="Main" type="Node" unique_id=1803210925]
+script = ExtResource("1_1bvp3")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=535354330]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=651752242]
+position = Vector2(240, 730)
+shape = SubResource("RectangleShape2D_enu52")
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=1833593776]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=1497880309]
+position = Vector2(240, -10)
+shape = SubResource("RectangleShape2D_2cjtp")
+
+[node name="ObstacleConveyor" parent="." unique_id=607725007 instance=ExtResource("2_0xm2m")]
+
+[node name="ScoreBoard" parent="." unique_id=1491481902 instance=ExtResource("3_h2yge")]
+
+[node name="Background" parent="." unique_id=1194118788 instance=ExtResource("4_1bvp3")]
+z_index = -1
+
+[connection signal="score_got" from="ObstacleConveyor" to="." method="on_obstacle_conveyor_score_got"]

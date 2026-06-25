@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dvgf7qv1jswfc"]
+
+[ext_resource type="Script" uid="uid://srqh8a4wado8" path="res://obstacle.gd" id="1_aubd6"]
+[ext_resource type="Texture2D" uid="uid://ds60b3fsuobo" path="res://sprites/pipe_green_bottom.png" id="1_sl1jc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enu52"]
+size = Vector2(20, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cjtp"]
+size = Vector2(20, 720)
+
+[node name="Obstacle" type="AnimatableBody2D" unique_id=470594461]
+collision_layer = 4
+script = ExtResource("1_aubd6")
+
+[node name="Up_CollisionShape" type="CollisionShape2D" parent="." unique_id=1591519209]
+shape = SubResource("RectangleShape2D_enu52")
+
+[node name="Down_CollisionShape" type="CollisionShape2D" parent="." unique_id=445005493]
+position = Vector2(0, 720)
+shape = SubResource("RectangleShape2D_2cjtp")
+
+[node name="Up_Sprite" type="Sprite2D" parent="." unique_id=1232036541]
+scale = Vector2(1, 2)
+texture = ExtResource("1_sl1jc")
+flip_v = true
+
+[node name="Down_Sprite" type="Sprite2D" parent="." unique_id=400277824]
+position = Vector2(0, 720)
+scale = Vector2(1, 2)
+texture = ExtResource("1_sl1jc")
