@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b0m7k1skluuyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enu52"]
+size = Vector2(878.5, 20)
+
+[node name="Minigame" type="Node2D" unique_id=1462728828]
+
+[node name="Shovel" type="AnimatableBody2D" parent="." unique_id=642152437]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shovel" unique_id=774236039]
+position = Vector2(599, 482)
+shape = SubResource("RectangleShape2D_enu52")
+
+[node name="Ground" type="CPUParticles2D" parent="." unique_id=923830201]
