@@ -5,6 +5,19 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2cjtp"]
 size = Vector2(20, 20)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_enu52"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=1740954018]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=625216501]
@@ -12,3 +25,7 @@ shape = SubResource("RectangleShape2D_enu52")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1467002099]
 texture = SubResource("PlaceholderTexture2D_2cjtp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2102132322]
+sprite_frames = SubResource("SpriteFrames_enu52")
+animation = &"new_animation"
