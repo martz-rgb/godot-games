@@ -1,10 +1,12 @@
-extends Node
+extends Node2D
 
+signal finished
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	print("i am readyy!")
+	
+	await get_tree().create_timer(3.0).timeout
+	finished.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

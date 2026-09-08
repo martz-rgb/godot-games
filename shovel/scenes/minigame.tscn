@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://b0m7k1skluuyg"]
 
+[ext_resource type="Script" uid="uid://y6ntakybv5w8" path="res://scripts/minigame.gd" id="1_5iev5"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enu52"]
 size = Vector2(878.5, 20)
 
 [node name="Minigame" type="Node2D" unique_id=1462728828]
+script = ExtResource("1_5iev5")
 
 [node name="Shovel" type="AnimatableBody2D" parent="." unique_id=642152437]
 
@@ -12,3 +15,7 @@ position = Vector2(599, 482)
 shape = SubResource("RectangleShape2D_enu52")
 
 [node name="Ground" type="CPUParticles2D" parent="." unique_id=923830201]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2064236631]
+color = Color(0.51020235, 0.71619165, 0.5165497, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
