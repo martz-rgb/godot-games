@@ -3,19 +3,29 @@
 [ext_resource type="Script" uid="uid://y6ntakybv5w8" path="res://scripts/minigame.gd" id="1_5iev5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enu52"]
-size = Vector2(878.5, 20)
+size = Vector2(900, 25)
 
 [node name="Minigame" type="Node2D" unique_id=1462728828]
 script = ExtResource("1_5iev5")
 
-[node name="Shovel" type="AnimatableBody2D" parent="." unique_id=642152437]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shovel" unique_id=774236039]
-position = Vector2(599, 482)
-shape = SubResource("RectangleShape2D_enu52")
-
-[node name="Ground" type="CPUParticles2D" parent="." unique_id=923830201]
-
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=2064236631]
+position = Vector2(4, -28)
 color = Color(0.51020235, 0.71619165, 0.5165497, 1)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="Shovel" type="AnimatableBody2D" parent="." unique_id=642152437]
+
+[node name="Polygon2D" type="Polygon2D" parent="Shovel" unique_id=62699450]
+color = Color(0.28485027, 0.28485027, 0.28485027, 1)
+polygon = PackedVector2Array(100, 475, 1000, 475, 1000, 500, 100, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shovel" unique_id=774236039]
+position = Vector2(550, 487.5)
+shape = SubResource("RectangleShape2D_enu52")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1153778069]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=86473751]
+position = Vector2(350.2929, 224)
+scale = Vector2(1.0074153, 1)
+polygon = PackedVector2Array(-37, 8, 397, 8, 639, 251, -246, 248)
