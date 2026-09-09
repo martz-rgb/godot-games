@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://b0qmowvpseias"]
 
+[ext_resource type="Script" uid="uid://bkxv2oekhweqm" path="res://scripts/dirt.gd" id="1_hm13w"]
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_enu52"]
+resource_local_to_scene = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_enu52"]
+resource_local_to_scene = true
 
 [node name="Dirt" type="RigidBody2D" unique_id=174778020]
+gravity_scale = 0.0
+script = ExtResource("1_hm13w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=270232957]
 position = Vector2(0.12500048, 0.625)

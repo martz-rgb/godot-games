@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dvjbkeq2mpm4i"]
+
+[ext_resource type="Script" uid="uid://dprb3gq0bbhyx" path="res://scripts/grid_cell.gd" id="1_152gs"]
+
+[node name="GridCell" type="Panel" unique_id=823987241]
+script = ExtResource("1_152gs")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=959389362]
+layout_mode = 0
+color = Color(0.50091654, 0.62444955, 0.37542063, 1)
