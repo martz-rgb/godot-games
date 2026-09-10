@@ -69,9 +69,8 @@ func dig(pivot: Vector2i):
 	next_dig = Shovel.Kinds.Rect1x1
 
 func is_over():
-	print("it over, isn't it? ", turns <= 0)
 	return turns <= 0
 	
 func finish():
-	#add got items to Inventory
+	InventoryAutoload.add_items(got_items)
 	return

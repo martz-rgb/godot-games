@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://brc32mydvty2v" path="res://sprites/player.png" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enu52"]
+size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_g2els"]
 length = 0.001
@@ -237,6 +238,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=625216501]
+position = Vector2(0.5, 8.5)
 shape = SubResource("RectangleShape2D_enu52")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=764112805]

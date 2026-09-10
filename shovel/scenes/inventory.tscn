@@ -1,9 +1,99 @@
 [gd_scene format=3 uid="uid://3up0e08rpsim"]
 
+[ext_resource type="Script" uid="uid://bif1sx1b3tmc0" path="res://scripts/inventory_gui.gd" id="1_qw0r6"]
+
 [node name="Inventory" type="Control" unique_id=1860949798]
 layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -132.0
+offset_bottom = 85.0
+grow_horizontal = 2
+script = ExtResource("1_qw0r6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2011129180]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.45855796, 0.34292224, 0.2604748, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=687536890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=1960577022]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 0
+columns = 13
+
+[node name="Item1" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=347789129]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40392157, 0.27058825, 0.15686275, 1)
+
+[node name="Item2" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=1173035105]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item3" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=1317997940]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item4" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=1993776202]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item5" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=1600687096]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item6" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=2038234826]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item7" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=290152837]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item8" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=1787579171]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item9" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=886394606]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item10" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=766708446]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item11" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=1159535687]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)
+
+[node name="Item12" type="ColorRect" parent="MarginContainer/GridContainer" unique_id=362167693]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+color = Color(0.40454403, 0.26936385, 0.15525204, 1)

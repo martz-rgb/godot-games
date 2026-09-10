@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://htrleoo48368" path="res://scripts/main_map.gd" id="1_4synu"]
 [ext_resource type="Texture2D" uid="uid://d1hxj61ole0a1" path="res://tileset/decor_8x8.png" id="1_kdyc3"]
 [ext_resource type="Texture2D" uid="uid://c5mjw2jahjchw" path="res://tileset/grass.png" id="2_4synu"]
-[ext_resource type="PackedScene" uid="uid://cyxtabwao45k1" path="res://scenes/gui.tscn" id="2_eqscl"]
 [ext_resource type="Texture2D" uid="uid://xuedv0ipikvm" path="res://tileset/plains.png" id="3_cyf2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_64gt2"]
@@ -92,5 +91,3 @@ tile_set = SubResource("TileSet_ql4w1")
 
 [node name="Player" parent="." unique_id=1740954018 instance=ExtResource("1_1xo34")]
 position = Vector2(286, 211)
-
-[node name="GUI" parent="." unique_id=1244365858 instance=ExtResource("2_eqscl")]
