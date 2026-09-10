@@ -1,7 +1,7 @@
 extends Node
 
 @onready var _main_map = $MainMap
-var minigame_scene: PackedScene = load("res://scenes/minigame.tscn")
+var minigame_scene: PackedScene = load("res://scenes/grid_game.tscn")
 
 var minigame
 
@@ -18,15 +18,14 @@ func pause_and_start_minigame():
 	if minigame:
 		return
 	
-	var child_tree = _main_map.get_tree()
-	if child_tree:
-		child_tree.paused = true
+	_main_map.process_mode = Node.PROCESS_MODE_DISABLED
+	#if child_tree:
+		#child_tree.paused = true
 	
 	var new_minigame = minigame_scene.instantiate()
 	minigame = new_minigame
 	
 	minigame.finished.connect(quit_minigame)
-	
 	add_child(minigame)
 	
 func quit_minigame():
@@ -36,6 +35,7 @@ func quit_minigame():
 		minigame.queue_free()
 		minigame = null
 		
-	var child_tree = _main_map.get_tree()
-	if child_tree:
-		child_tree.paused = false
+	_main_map.process_mode = Node.PROCESS_MODE_INHERIT
+	#var child_tree = _main_map.get_tree()
+	#if child_tree:
+		#child_tree.paused = false

@@ -22,7 +22,7 @@ func _physics_process(_delta: float) -> void:
 	var horizontal := Input.get_axis("ui_left", "ui_right")
 	var vertical := Input.get_axis("ui_up", "ui_down")
 	
-	var is_new_action = Input.is_action_just_pressed("ui_accept")
+	var is_new_action = Input.is_action_just_pressed("ui_action")
 	if is_new_action and !is_action:
 		is_action = true
 		
