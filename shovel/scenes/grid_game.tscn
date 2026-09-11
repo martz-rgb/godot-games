@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bqswkppn5tqxb"]
 
 [ext_resource type="Script" uid="uid://dh4xil70478ve" path="res://scripts/grid_game.gd" id="1_whmy2"]
+[ext_resource type="Script" uid="uid://digo8gakwon5j" path="res://scripts/next_dig.gd" id="2_825qg"]
 
 [node name="GridGame" type="Node" unique_id=519091958]
 script = ExtResource("1_whmy2")
@@ -25,3 +26,26 @@ grow_vertical = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=811573585]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2093823097]
+layout_mode = 2
+
+[node name="LeftTurns" type="Label" parent="MarginContainer/VBoxContainer" unique_id=30051555]
+layout_mode = 2
+text = "Digs left: 5"
+
+[node name="Next" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1115823859]
+layout_mode = 2
+text = "Next dig:
+"
+
+[node name="NextDig" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1385239996]
+custom_minimum_size = Vector2(200, 460)
+layout_mode = 2
+script = ExtResource("2_825qg")

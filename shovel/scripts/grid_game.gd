@@ -5,6 +5,9 @@ signal finished
 @onready var grid_container = $Grid
 var grid_cell_scene: PackedScene = load("res://scenes/grid_cell.tscn")
 
+@onready var turns_label = $MarginContainer/VBoxContainer/LeftTurns
+@onready var next_dig = $MarginContainer/VBoxContainer/NextDig
+
 var core: GridCore
 var current_cell: Vector2i = NoCurrentCell
 
@@ -29,47 +32,58 @@ func _ready() -> void:
 		grid_cell.exited_hovered.connect(on_cell_exited_hovered)
 		
 		grid_container.add_child(grid_cell)
+	
+	update_gui()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	print("where is my action")
+	#print("where is my action")
 	if Input.is_action_just_pressed("ui_action"):
-		print("where is my action")
-		if current_cell == NoCurrentCell:
-			return
-		
-		core.dig(current_cell)
-		redraw_grid()
-		
-		if core.is_over():
-			core.finish()
-			await get_tree().create_timer(1.0).timeout
-			finished.emit()
+		make_dig()
+			
+	elif Input.is_action_just_pressed("ui_rotate"):
+		core.rotate_shovel()
+		update_selection()
 
 func on_cell_hovered(i, j):
 	current_cell = Vector2(i, j)
-	print("hovered: ", current_cell.x, " ", current_cell.y)
 	update_selection()
 	
 func on_cell_exited_hovered(i, j):
 	if Vector2i(i, j) == current_cell:
 		current_cell = NoCurrentCell
-	print("exited hovered: ", current_cell.x, " ", current_cell.y)
 	update_selection()
 	
+func make_dig():
+	#print("where is my action")
+	if current_cell == NoCurrentCell:
+		return
+	
+	core.dig(current_cell)
+	redraw_grid()
+	
+	if core.is_over():
+		core.finish()
+		await get_tree().create_timer(1.0).timeout
+		finished.emit()
+		
+	update_gui()
+	
 func update_selection():
-	#core.current_dig
 	for i in range(Rows*Cols):
 		var grid_cell = grid_container.get_child(i)
 		if not grid_cell:
 			break
 		grid_cell.unselect_cell()
-		
+			
 	if current_cell != NoCurrentCell:
-		var select_cell = grid_container.get_child(current_cell.x * Cols + current_cell.y)
-		select_cell.select_cell()
-		
+		var selection = Shovel.get_area(core.current_dig, current_cell, Rows, Cols, core.rotate)
+		for value in selection:
+			var select_cell = grid_container.get_child(value.x * Cols + value.y)
+			if select_cell:
+				select_cell.select_cell()
+					
 	redraw_grid()
 
 func redraw_grid():
@@ -78,3 +92,9 @@ func redraw_grid():
 		if not grid_cell:
 			break
 		grid_cell.queue_redraw()
+
+func update_gui():
+	turns_label.text = "Digs left: "+str(core.turns)
+	next_dig.next_dig = core.next_dig
+	next_dig.queue_redraw()
+	

@@ -10,8 +10,9 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	pass
 	# test
-	counts[Items.Kinds.PlantA] = 2
+	#counts[Items.Kinds.PlantA] = 2
 
 func add_items(new_items: Dictionary): # Items.Kinds : int
 	for key in new_items:

@@ -7,21 +7,20 @@ func _ready() -> void:
 	var index = 0
 	
 	for kind in Items.Kinds:
-		print(InventoryAutoload.counts, kind)
-		if not InventoryAutoload.counts.has(kind):
-			print(InventoryAutoload.counts.has(kind), kind)
+		var value = Items.Kinds[kind]
+		
+		if not InventoryAutoload.counts.has(value):
 			continue
-		var count = InventoryAutoload.counts[kind]
+		var count = InventoryAutoload.counts[value]
 		
 		var child = grid.get_child(index)
 		if not child:
 			break
 		
-		var color = kind_to_color(kind)
-		if count == 0:
-			color.clamp(color, Color.BLACK)	
+		var color = kind_to_color(value)
 			
-		child.color = color
+		child.set_color(color)
+		child.set_label(str(count))
 		
 		index = index+1
 

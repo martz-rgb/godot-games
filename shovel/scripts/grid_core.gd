@@ -8,10 +8,12 @@ var rows = 10
 var cols = 10
 # array of array of GridCell
 var grid: Array = [] 
+var rndg: RandomNumberGenerator
 
 var turns = MaxTurns
 var current_dig: Shovel.Kinds
 var next_dig: Shovel.Kinds
+var rotate: int = 0
 
 var got_items = {} # Items.Kinds : int
 
@@ -29,30 +31,28 @@ static func create(new_rows: int, new_cols: int) -> GridCore:
 	return new
 
 func init_game(): 
-	var randg = RandomNumberGenerator.new()
+	rndg = RandomNumberGenerator.new()
 	
 	for i in range(rows * cols):
-		var index = randg.rand_weighted(Items.probabilities)
+		var index = rndg.rand_weighted(Items.probabilities)
 		grid[i].item = Items.List[index]
 		
-	current_dig = Shovel.Kinds.Rect1x1
-	next_dig = Shovel.Kinds.Rect1x1
-	#current_dig = Shovel.List[randg.rand_weighted(Shovel.probabilities)]
-	#next_dig = Shovel.List[randg.rand_weighted(Shovel.probabilities)]
+	#current_dig = Shovel.Kinds.Rect2x3
+	#next_dig = Shovel.Kinds.Rect1x1
+	current_dig = Shovel.List[rndg.rand_weighted(Shovel.probabilities)]
+	next_dig = Shovel.List[rndg.rand_weighted(Shovel.probabilities)]
+
+func rotate_shovel():
+	rotate = (rotate + 1) % 4
 
 func dig(pivot: Vector2i):
 	if is_over():
 		return 
 		
-	var area = Shovel.get_area(current_dig, pivot)
+	var area = Shovel.get_area(current_dig, pivot, rows, cols, rotate)
 	
-	for i in range(len(area)):
-		var coord = area[i]
-		if coord.x < 0 || coord.x >= rows || \
-			coord.y < 0 || coord.y >= cols:
-			continue
-		
-		var cell = grid[coord.x * cols + coord.y]
+	for value in area:		
+		var cell = grid[value.x * cols + value.y]
 		if not cell:
 			continue
 			
@@ -66,11 +66,16 @@ func dig(pivot: Vector2i):
 
 	turns = turns - 1
 	current_dig = next_dig
-	next_dig = Shovel.Kinds.Rect1x1
+	if turns > 1:
+		next_dig = Shovel.List[rndg.rand_weighted(Shovel.probabilities)] 
+	else:
+		next_dig = Shovel.Kinds.None
+	rotate = 0
 
 func is_over():
 	return turns <= 0
 	
 func finish():
 	InventoryAutoload.add_items(got_items)
+	print("add items", got_items)
 	return

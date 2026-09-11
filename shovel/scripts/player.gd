@@ -7,6 +7,8 @@ const SPEED = 300.0
 @onready var _sprite = $Sprite2D
 var direction = Vector2(0, 1) # front is default
 
+var input_horizontal = Vector2(0, 0)
+var input_vertical = Vector2(0, 0)
 var is_action = false
 
 class AnimationParams:
@@ -15,16 +17,21 @@ class AnimationParams:
 
 func _process(_delta: float) -> void:
 	update_animation()
+		
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_action"):
+		#print(event, "pure input")
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_action"):
+		#print(event, "unhadled input")
+		is_action = true
 
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var horizontal := Input.get_axis("ui_left", "ui_right")
 	var vertical := Input.get_axis("ui_up", "ui_down")
-	
-	var is_new_action = Input.is_action_just_pressed("ui_action")
-	if is_new_action and !is_action:
-		is_action = true
 		
 	var new_velocity = Vector2(horizontal, vertical).normalized() * SPEED
 	if is_action:
