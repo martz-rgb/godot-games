@@ -82,7 +82,7 @@ sources/1 = SubResource("TileSetAtlasSource_64gt2")
 sources/2 = SubResource("TileSetAtlasSource_2xk3c")
 sources/3 = SubResource("TileSetAtlasSource_ulx81")
 
-[node name="MainMap" type="Node" unique_id=909731615]
+[node name="MainMap" type="Node2D" unique_id=336888695]
 script = ExtResource("1_4synu")
 
 [node name="Map" type="TileMapLayer" parent="." unique_id=1245591808]
@@ -91,3 +91,4 @@ tile_set = SubResource("TileSet_ql4w1")
 
 [node name="Player" parent="." unique_id=1740954018 instance=ExtResource("1_1xo34")]
 position = Vector2(286, 211)
+scale = Vector2(1, 1)

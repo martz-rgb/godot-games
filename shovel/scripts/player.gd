@@ -3,12 +3,11 @@ extends CharacterBody2D
 signal digged
 
 const SPEED = 300.0
-@onready var _animated_player = $AnimationPlayer
-@onready var _sprite = $Sprite2D
+@onready var animated_player = $AnimationPlayer
+@onready var sprite = $Sprite2D
+@onready var collision_shape = $CollisionShape2D
 var direction = Vector2(0, 1) # front is default
 
-var input_horizontal = Vector2(0, 0)
-var input_vertical = Vector2(0, 0)
 var is_action = false
 
 class AnimationParams:
@@ -46,8 +45,8 @@ func update_animation():
 	var new_direction = determine_direction(velocity)
 	var params = determine_animation(new_direction, velocity.length() > 0, is_action)
 	
-	_sprite.flip_h = params.flip_h	
-	_animated_player.play(params.animation)
+	sprite.flip_h = params.flip_h	
+	animated_player.play(params.animation)
 	
 	direction = new_direction
 	
@@ -104,3 +103,8 @@ func dig():
 	is_action = false
 	digged.emit()
 		
+func get_direction_position():
+	var size = collision_shape.shape.get_rect().size
+	var center = position + collision_shape.position + size / 2.
+	
+	return center + Vector2(size.x * direction.x, size.y * direction.y) / 2.

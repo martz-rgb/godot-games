@@ -8,6 +8,7 @@
 script = ExtResource("1_0wfyh")
 
 [node name="MainMap" parent="." unique_id=909731615 instance=ExtResource("1_o5qli")]
+scale = Vector2(2, 2)
 
 [node name="GUI" parent="." unique_id=1244365858 instance=ExtResource("3_sugp2")]
 mouse_filter = 1
